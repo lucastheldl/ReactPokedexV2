@@ -10,11 +10,13 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [pokemons, setPokemons] = useState([]);
+  const [page, setPage] = useState(0);
+  const [totalPage, setTotalPage] = useState(0);
 
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const data = await getPokemons(20, 0);
+      const data = await getPokemons(24, 0);
 
       const promises = data.results.map(async (pokemon) => {
         return getPokemonData(pokemon.url);
@@ -35,6 +37,7 @@ const Home = () => {
 
   const onSearch = async (pokemon) => {
     if (!pokemon) {
+      return fetchPokemons();
     }
     setLoading(true);
     const result = await getPokemon(pokemon);
@@ -51,7 +54,7 @@ const Home = () => {
   return (
     <div className="App">
       <Navbar />
-      <SearchBar />
+      <SearchBar onSearch={onSearch} />
       <Pokedex pokemons={pokemons} loading={loading} />
     </div>
   );

@@ -1,0 +1,18 @@
+.search-container{
+  margin: 2em 0;
+}
+
+.search-container input{
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-right: 1em;
+  font-size: 1em;
+}
+.search-container button{
+  border: none;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  padding: 10px;
+  font-size: 1em;
+}

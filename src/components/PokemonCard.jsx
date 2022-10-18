@@ -1,8 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+//css
+import "./PokemonCard.css";
 
 const PokemonCard = ({ pokemon }) => {
   return (
-    <div className="pokemon-card-container">
+    <Link
+      to={`/${pokemon.name}`}
+      className="pokemon-card-container"
+      id={pokemon.types[0].type.name}
+    >
+      {console.log(pokemon)}
       <img
         className="pokemon-image"
         src={pokemon.sprites.front_default}
@@ -10,14 +18,14 @@ const PokemonCard = ({ pokemon }) => {
       />
       <div className="card-body">
         <div className="card-top">
-          <p>{pokemon.name}</p>
-          <p>{pokemon.id}</p>
+          <h3>{pokemon.name}</h3>
         </div>
         <div className="card-bottom">
-          <button>🖤</button>
+          <p>#{pokemon.id}</p>
+          <button className="favorite-button">🖤</button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
