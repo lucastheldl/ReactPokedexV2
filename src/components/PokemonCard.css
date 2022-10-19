@@ -1,3 +1,6 @@
+.pokemon-card-container-div{
+  position: relative;
+}
 .pokemon-card-container{
   display: flex;
   align-items: center;
@@ -13,14 +16,22 @@
   width: 70px;
   margin-right: 10px;
 }
+.pokemon-type{
+  display: flex;
+}
+.pokemon-type p{
+  margin-left: 0.5em;
+}
 .card-body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 10px 10px 0px;
+  padding: 0px 10px 0px 10px;
   flex: 1;
 }
-.card-top h3{
+.card-top{
+  display: flex;
+  justify-content: space-between;
   text-transform: capitalize;
   
 }
@@ -30,6 +41,9 @@
   align-items: center;
 }
 .favorite-button{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
   border: none;
   background-color: transparent;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
@@ -43,64 +57,3 @@
 }
 
 
-#fighting{
-  background-color: rgb(210, 25, 25);
-  color: white;
-}
-#dragon{
-  background-color: rgb(238, 58, 58);
-  color: white;
-}
-#fire{
-  background-color: rgb(255, 111, 0);
-}
-#water{
-  background-color:aquamarine;
-}
-#ice{
-  background-color:rgb(255, 255, 255);
-}
-#poison{
-  background-color: rgb(103, 28, 137);
-  color: white;
-}
-#ghost{
-  background-color: rgb(80, 8, 8);
-  color: white;
-}
-#flying{
-  background-color: rgb(200, 200, 200);
-}
-#steel{
-  background-color: rgb(144, 144, 144);
-}
-#dark{
-  background-color: rgb(25, 25, 25);
-  color: white;
-}
-
-#electric{
-  background-color: rgb(251, 255, 31);
-}
-#psychic{
-  background-color: rgb(155, 140, 243);
-}
-#bug{
-  background-color: rgb(100, 223, 28);
-}
-#grass{
-  background-color: rgb(57, 155, 0);
-}
-#normal{
-  background-color: rgb(255, 192, 104);
-}
-#ground{
-  background-color: rgb(167, 106, 21);
-}
-#rock{
-  background-color: rgb(104, 55, 24);
-  color: white;
-}
-#fairy{
-  background-color: rgb(211, 87, 233);
-}

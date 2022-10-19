@@ -12,7 +12,8 @@
 .search-container button{
   border: none;
   border-radius: 10px;
-  background-color: cornflowerblue;
+  background-color: rgb(37, 193, 183);
+  color: white;
   padding: 10px;
   font-size: 1em;
 }

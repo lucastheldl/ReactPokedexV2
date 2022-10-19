@@ -1,0 +1,10 @@
+.pagination-container{
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  margin-right: 2em;
+  font-size: 20px;
+}
+.pagination-container p{
+  margin: 0px 1em;
+}
