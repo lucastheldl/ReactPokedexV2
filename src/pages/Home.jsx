@@ -44,11 +44,11 @@ const Home = () => {
   }, [page]);
 
   const onSearch = async (pokemon) => {
+    setNotFound(false);
     if (!pokemon) {
       return fetchPokemons();
     }
     setLoading(true);
-    setNotFound(false);
     const result = await getPokemon(pokemon);
 
     if (!result) {

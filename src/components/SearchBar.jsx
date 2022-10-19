@@ -10,6 +10,7 @@ const SearchBar = ({ onSearch }) => {
     setSearch(e.target.value);
     if (e.target.value.length === 0) {
       onSearch(undefined);
+      console.log("sim");
     }
   };
 
