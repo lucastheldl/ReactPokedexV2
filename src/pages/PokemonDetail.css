@@ -38,6 +38,9 @@
   display: flex;
   align-items: center;
 }
+.pokemon-moves p{
+  margin-right: 1em;
+}
 .pokemon-types{
   display: flex;
   align-items: center;
