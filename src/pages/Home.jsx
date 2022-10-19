@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getPokemon, getPokemons, getPokemonData } from "../api";
 
 //components
@@ -99,7 +99,10 @@ const Home = () => {
 
   return (
     <FavoriteProvider
-      value={{ favPokemon: favorites, updateFavPokemon: updateFavPokemon }}
+      value={{
+        favPokemon: favorites,
+        updateFavPokemon: updateFavPokemon,
+      }}
     >
       <div className="App">
         <Navbar />
@@ -114,6 +117,7 @@ const Home = () => {
               totalPages={totalPage}
               onLeftClick={onLeftClick}
               onRightClick={onRightClick}
+              loading={loading}
             />
             <Pokedex pokemons={pokemons} loading={loading} />
           </>

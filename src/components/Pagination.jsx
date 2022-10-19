@@ -2,14 +2,20 @@ import React from "react";
 //css
 import "./Pagination.css";
 
-const Pagination = ({ page, totalPages, onLeftClick, onRightClick }) => {
+const Pagination = ({
+  page,
+  totalPages,
+  onLeftClick,
+  onRightClick,
+  loading,
+}) => {
   return (
     <div className="pagination-container">
-      <button onClick={onLeftClick}>◀</button>
+      <button onClick={!loading && onLeftClick}>◀</button>
       <p>
         Página {page} de {totalPages}
       </p>
-      <button onClick={onRightClick}>▶</button>
+      <button onClick={!loading && onRightClick}>▶</button>
     </div>
   );
 };
