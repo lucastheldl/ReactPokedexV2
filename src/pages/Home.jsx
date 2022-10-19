@@ -48,6 +48,7 @@ const Home = () => {
       return fetchPokemons();
     }
     setLoading(true);
+    setNotFound(false);
     const result = await getPokemon(pokemon);
 
     if (!result) {
@@ -103,16 +104,19 @@ const Home = () => {
       <div className="App">
         <Navbar />
         <SearchBar onSearch={onSearch} />
-        <Pagination
-          page={page + 1}
-          totalPages={totalPage}
-          onLeftClick={onLeftClick}
-          onRightClick={onRightClick}
-        />
+
         {notFound ? (
           <p className="not-found">Pokemon não encontrado!</p>
         ) : (
-          <Pokedex pokemons={pokemons} loading={loading} />
+          <>
+            <Pagination
+              page={page + 1}
+              totalPages={totalPage}
+              onLeftClick={onLeftClick}
+              onRightClick={onRightClick}
+            />
+            <Pokedex pokemons={pokemons} loading={loading} />
+          </>
         )}
       </div>
     </FavoriteProvider>

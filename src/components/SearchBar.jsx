@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./SearchBar.css";
 
 const SearchBar = ({ onSearch }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("pika");
 
   const onChangeHandler = (e) => {
     setSearch(e.target.value);
