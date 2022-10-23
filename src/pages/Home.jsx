@@ -63,12 +63,12 @@ const Home = () => {
   };
 
   const onLeftClick = () => {
-    if (page > 0) {
+    if (page > 0 && !loading) {
       setPage(page - 1);
     }
   };
   const onRightClick = () => {
-    if (page !== totalPage) {
+    if (page !== totalPage && !loading) {
       setPage(page + 1);
     }
   };

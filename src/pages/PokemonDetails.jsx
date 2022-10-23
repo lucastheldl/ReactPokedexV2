@@ -14,12 +14,28 @@ const PokemonDetails = () => {
     setLoading(true);
     const result = await getPokemon(id);
     setPokemon(result);
-
     setLoading(false);
   };
   useEffect(() => {
     getPokemonDetail(id);
   }, []);
+  useEffect(() => {
+    updateStatsBars();
+  }, [pokemon]);
+
+  const updateStatsBars = () => {
+    let hpbar = document.body.querySelector("#hp-Bar");
+    let atkbar = document.body.querySelector("#atk-Bar");
+    let defbar = document.body.querySelector("#de-Bar");
+    let velbar = document.body.querySelector("#vel-Bar");
+
+    if (pokemon.length != 0) {
+      hpbar.style.width = pokemon.stats[0].base_stat + "%";
+      atkbar.style.width = pokemon.stats[1].base_stat + "%";
+      defbar.style.width = pokemon.stats[2].base_stat + "%";
+      velbar.style.width = pokemon.stats[5].base_stat + "%";
+    }
+  };
 
   return (
     <div>
@@ -31,11 +47,7 @@ const PokemonDetails = () => {
           <Link to={"/"} className="back-btn">
             ◀
           </Link>
-          <h1>{pokemon.name}</h1>
-          <img
-            className="pokemon-detail-image"
-            src={pokemon.sprites.other["official-artwork"].front_default}
-          />
+
           <div className="pokemon-info">
             <p>
               <span>ID:</span>
@@ -60,6 +72,41 @@ const PokemonDetails = () => {
               {pokemon.types.map((type, index) => {
                 return <p key={index}>{type.type.name}</p>;
               })}
+            </div>
+          </div>
+
+          <div className="pokemon-image-container">
+            <h1>{pokemon.name}</h1>
+            <img
+              className="pokemon-detail-image"
+              src={pokemon.sprites.other["official-artwork"].front_default}
+            />
+          </div>
+
+          <div className="pokemon-stats">
+            <span>Hp:</span>
+            <div className="Progress_Status">
+              <div className="bar-value" id="hp-Bar">
+                <p>{pokemon.stats[0].base_stat}</p>
+              </div>
+            </div>
+            <span>Atk:</span>
+            <div className="Progress_Status">
+              <div className="bar-value" id="atk-Bar">
+                <p>{pokemon.stats[1].base_stat}</p>
+              </div>
+            </div>
+            <span>Def:</span>
+            <div className="Progress_Status">
+              <div className="bar-value" id="de-Bar">
+                <p>{pokemon.stats[2].base_stat}</p>
+              </div>
+            </div>
+            <span>Vel:</span>
+            <div className="Progress_Status">
+              <div className="bar-value" id="vel-Bar">
+                <p>{pokemon.stats[5].base_stat}</p>
+              </div>
             </div>
           </div>
         </div>
