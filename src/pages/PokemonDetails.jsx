@@ -84,26 +84,29 @@ const PokemonDetails = () => {
           </div>
 
           <div className="pokemon-stats">
-            <span>Hp:</span>
             <div className="Progress_Status">
+              <span>HP:</span>
               <div className="bar-value" id="hp-Bar">
                 <p>{pokemon.stats[0].base_stat}</p>
               </div>
             </div>
-            <span>Atk:</span>
+
             <div className="Progress_Status">
+              <span>ATK:</span>
               <div className="bar-value" id="atk-Bar">
                 <p>{pokemon.stats[1].base_stat}</p>
               </div>
             </div>
-            <span>Def:</span>
+
             <div className="Progress_Status">
+              <span>DEF:</span>
               <div className="bar-value" id="de-Bar">
                 <p>{pokemon.stats[2].base_stat}</p>
               </div>
             </div>
-            <span>Vel:</span>
+
             <div className="Progress_Status">
+              <span>VEL:</span>
               <div className="bar-value" id="vel-Bar">
                 <p>{pokemon.stats[5].base_stat}</p>
               </div>

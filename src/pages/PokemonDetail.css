@@ -72,10 +72,17 @@
   align-items: flex-end;
 }
  .Progress_Status {
+  position: relative;
+  display: flex;
   margin-bottom: 2rem;
   width: 70%;
   border-radius: 10px;
   background-color: #ddd;
+}
+ .Progress_Status span {
+    position: absolute;
+    left: -3rem;
+    top: 0;
 }
  #hp-Bar,#atk-Bar, #de-Bar,#vel-Bar {
   width: 1%;
