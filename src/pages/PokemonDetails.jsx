@@ -44,7 +44,7 @@ const PokemonDetails = () => {
           className="pokemon-detail-container"
           id={pokemon.types[0].type.name}
         >
-          <Link to={"/"} className="back-btn">
+          <Link to={"/ReactPokedexV2/"} className="back-btn">
             ◀
           </Link>
 

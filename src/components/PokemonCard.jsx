@@ -16,7 +16,7 @@ const PokemonCard = ({ pokemon }) => {
   return (
     <div className="pokemon-card-container-div">
       <Link
-        to={`/${pokemon.name}`}
+        to={`/ReactPokedexV2/${pokemon.name}`}
         className="pokemon-card-container"
         id={pokemon.types[0].type.name}
       >
