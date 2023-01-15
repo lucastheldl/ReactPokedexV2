@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { getPokemon } from "../api";
 //
 import "./PokemonDetail.css";
@@ -9,6 +9,7 @@ const PokemonDetails = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const getPokemonDetail = async (id) => {
     setLoading(true);
@@ -22,6 +23,10 @@ const PokemonDetails = () => {
   useEffect(() => {
     updateStatsBars();
   }, [pokemon]);
+
+  function handleGoBack() {
+    navigate(-1);
+  }
 
   const updateStatsBars = () => {
     let hpbar = document.body.querySelector("#hp-Bar");
@@ -44,9 +49,9 @@ const PokemonDetails = () => {
           className="pokemon-detail-container"
           id={pokemon.types[0].type.name}
         >
-          <Link to={"/ReactPokedexV2/"} className="back-btn">
+          <button onClick={handleGoBack} className="back-btn">
             ◀
-          </Link>
+          </button>
 
           <div className="pokemon-info">
             <p>

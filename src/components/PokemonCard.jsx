@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+//context
 import FavoriteContext from "../context/favoriteContext";
 //css
 import "./PokemonCard.css";

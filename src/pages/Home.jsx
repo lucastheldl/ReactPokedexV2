@@ -9,10 +9,13 @@ import SearchBar from "../components/SearchBar";
 //context
 
 import { FavoriteProvider } from "../context/favoriteContext";
+import { PageContext } from "../context/pageContext";
 
 const favoritesKey = "c";
 
 const Home = () => {
+  const { currentPage, setCurrentPage } = useContext(PageContext);
+
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [pokemons, setPokemons] = useState([]);
@@ -23,7 +26,7 @@ const Home = () => {
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const data = await getPokemons(24, 24 * page);
+      const data = await getPokemons(24, 24 * currentPage);
 
       const promises = data.results.map(async (pokemon) => {
         return getPokemonData(pokemon.url);
@@ -41,7 +44,7 @@ const Home = () => {
   };
   useEffect(() => {
     fetchPokemons();
-  }, [page]);
+  }, [currentPage]);
 
   const onSearch = async (pokemon) => {
     setNotFound(false);
@@ -57,19 +60,22 @@ const Home = () => {
     } else {
       setPage(0);
       setTotalPage(1);
+      setCurrentPage(0); //context
       setPokemons([result]);
       setLoading(false);
     }
   };
 
   const onLeftClick = () => {
-    if (page > 0 && !loading) {
-      setPage(page - 1);
+    if (currentPage > 0 && !loading) {
+      //setPage(page - 1);
+      setCurrentPage(currentPage - 1);
     }
   };
   const onRightClick = () => {
-    if (page !== totalPage && !loading) {
-      setPage(page + 1);
+    if (currentPage !== totalPage && !loading) {
+      //setPage(page + 1);
+      setCurrentPage(currentPage + 1);
     }
   };
 
@@ -113,7 +119,7 @@ const Home = () => {
         ) : (
           <>
             <Pagination
-              page={page + 1}
+              page={currentPage + 1}
               totalPages={totalPage}
               onLeftClick={onLeftClick}
               onRightClick={onRightClick}
