@@ -89,6 +89,7 @@ const Home = () => {
       loadFavoritePokemons();
     }
   }, []);
+
   const updateFavPokemon = (name) => {
     const updatedList = [...favorites];
 
@@ -126,6 +127,13 @@ const Home = () => {
               loading={loading}
             />
             <Pokedex pokemons={pokemons} loading={loading} />
+            <Pagination
+              page={currentPage + 1}
+              totalPages={totalPage}
+              onLeftClick={onLeftClick}
+              onRightClick={onRightClick}
+              loading={loading}
+            />
           </>
         )}
       </div>
