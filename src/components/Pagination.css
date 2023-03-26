@@ -1,10 +1,26 @@
-.pagination-container{
+.pagination-container {
   display: flex;
   justify-content: flex-end;
-  color: white;
+  align-items: center;
+  
+ 
   margin-right: 2em;
+  
+  color: white;
   font-size: 20px;
 }
-.pagination-container p{
+.pagination-container button{
+  padding: 0.7rem 0.8rem;
+  border-radius: 50%;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.pagination-container button:hover{
+  background-color: white;
+  color:rgb(26, 26, 85);
+}
+.pagination-container p {
   margin: 0px 1em;
 }
